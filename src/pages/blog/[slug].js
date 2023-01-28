@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { MDXRemote } from "next-mdx-remote";
 import Button from "@/src/MDXComponents/Button";
+import Head from "next/head";
 
 const components = {
   SyntaxHighlighter,
@@ -16,6 +17,10 @@ const PostPage = ({ frontMatter, mdxSource }) => {
 
   return (
     <div>
+      <Head>
+        <title>{title}</title>
+        <meta property="blog:title" content={title} key={title} />
+      </Head>
       <div>
         <h1>{title}</h1>
         <p>{desc}</p>
